@@ -1,0 +1,4 @@
+FROM php:5.6-apache
+RUN docker-php-ext-install opcache
+COPY config/php-conf.d/*  /usr/local/etc/php/conf.d/
+COPY src /var/www/html

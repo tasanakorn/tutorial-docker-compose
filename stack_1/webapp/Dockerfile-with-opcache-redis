@@ -1,0 +1,7 @@
+FROM php:5.6-apache
+RUN docker-php-ext-install opcache
+RUN pecl install -o -f redis \
+    &&  rm -rf /tmp/pear \
+    &&  docker-php-ext-enable redis
+COPY config/php-conf.d/*  /usr/local/etc/php/conf.d/
+COPY src /var/www/html
