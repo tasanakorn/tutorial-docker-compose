@@ -16,8 +16,6 @@ services:
     build:
       context: webapp
       dockerfile: Dockerfile-with-opcache-redis
-    links:
-      - redis
     ports:
       - 8082:80
   redis:
